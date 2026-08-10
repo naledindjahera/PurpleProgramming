@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Types — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level1.html" class="back-link">← Level 1</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#a78bfa;--realm-b:#3c2065;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 12 12 21 4 12Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 2 · Level 1</p>
+    <h1>Data Types</h1>
+    <p class="tagline">The four elements of data</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>A <strong>data type</strong> describes what kind of value a variable holds. Python has four fundamental types: integers, floats, strings, and booleans. The Ministry of Home Affairs registry in Windhoek stores millions of records &mdash; and every single field on that form is really just one of these four types in disguise.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">The four core data types</span>
+    </div>
+    <pre><code>id_number = <span class="tok-str">&quot;97031000123&quot;</span>    <span class="tok-com"># str  - stored as text, has leading structure</span>
+age = <span class="tok-num">27</span>                     <span class="tok-com"># int  - whole number</span>
+height_m = <span class="tok-num">1.68</span>              <span class="tok-com"># float - decimal number</span>
+has_voted = <span class="tok-kw">True</span>             <span class="tok-com"># bool - True or False</span>
+
+<span class="tok-fn">print</span>(type(id_number))
+<span class="tok-fn">print</span>(type(age))
+<span class="tok-fn">print</span>(type(height_m))
+<span class="tok-fn">print</span>(type(has_voted))</code></pre>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1</span>
+    </div>
+    <p>A Namibian ID number is made of digits but should <strong>never</strong> be stored as an <code>int</code> (leading zeros get eaten, and you'll never do maths on it). Create the following five variables describing a learner registering for the camp, using the correct type for each: <code>full_name</code> (str), <code>national_id</code> (str), <code>grade</code> (int), <code>average_mark</code> (float), <code>has_laptop</code> (bool). Then print each variable together with its type using <code>type()</code>, on its own line.</p>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2</span>
+    </div>
+    <p>The camp equipment store needs a digital inventory tag for one item. Create four variables using the correct type for each: <code>item_name</code> (str) e.g. "Sleeping Bag", <code>item_code</code> (str) e.g. "045A" — codes are never stored as <code>int</code>, even if they look numeric — <code>quantity_in_stock</code> (int), and <code>unit_price</code> (float). Then print each variable together with its type using <code>type()</code>, on its own line.</p>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l1-datatypes",
+    hub: "../../levels/level1.html",
+    index: 2,
+    total: 6,
+    nextHref: "operators.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level1/datatypes.js"></script>
+
+</body>
+</html>

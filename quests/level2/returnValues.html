@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Return Values — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level2.html" class="back-link">← Level 2</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#5ad0e0;--realm-b:#123a3e;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+    </div>
+    <p class="eyebrow">Unit 5 · Level 2</p>
+    <h1>Return Values</h1>
+    <p class="tagline">Sending an answer back</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>A <strong>return value</strong> is the result a function sends back after it runs, using the <code>return</code> keyword, so you can store it in a variable and use it later &mdash; unlike <code>print()</code>, which only displays a value and hands nothing back.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">return vs print</span>
+    </div>
+    <pre><code><span class="tok-kw">def</span> convert_to_percentage(mark, total):
+    <span class="tok-kw">return</span> <span class="tok-fn">round</span>((mark / total) * <span class="tok-num">100</span>, <span class="tok-num">1</span>)
+
+score = convert_to_percentage(<span class="tok-num">64</span>, <span class="tok-num">80</span>)
+<span class="tok-fn">print</span>(score + <span class="tok-num">5</span>)   <span class="tok-com"># 85.0  - we can keep calculating with it, because it&#x27;s a real value</span></code></pre>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1</span>
+    </div>
+    <p>Write a function <code>convert_to_percentage(mark, total)</code> that <strong>returns</strong> (does not print) the mark as a percentage of the total, rounded to 1 decimal place. Call it once, storing the result in <code>score</code>. Then print <code>score + 5</code> to prove the returned value is a real number you can keep calculating with.</p>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2</span>
+    </div>
+    <p>Write a function <code>nsfaf_ready(average, attendance)</code> that returns (does <strong>not</strong> print) <code>True</code> if a student qualifies for an NSFAF-style bursary: their average mark must be at least 60, <strong>and</strong> their attendance percentage must be at least 80. Then write a second function <code>describe_status(name, qualifies)</code> that takes a name and a boolean and returns a full sentence string (not printed inside the function). Create a list called <code>students</code> of at least 3 <code>(name, average, attendance)</code> tuples, loop through it, and print the resulting sentence for each student.</p>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l2-return",
+    hub: "../../levels/level2.html",
+    index: 5,
+    total: 6,
+    nextHref: "finalChallenge.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level2/returnValues.js"></script>
+
+</body>
+</html>

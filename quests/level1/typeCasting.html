@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Type Casting — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level1.html" class="back-link">← Level 1</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#a78bfa;--realm-b:#3c2065;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+    </div>
+    <p class="eyebrow">Unit 5 · Level 1</p>
+    <h1>Type Casting</h1>
+    <p class="tagline">Shapeshifting between types</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p><strong>Type casting</strong> means converting a value from one data type to another &mdash; for example, turning the text <code>"12"</code> that <code>input()</code> gives you into the number <code>12</code> so you can do maths with it.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Converting between data types</span>
+    </div>
+    <pre><code>price_text = <span class="tok-str">&quot;24.50&quot;</span>
+price = <span class="tok-fn">float</span>(price_text)      <span class="tok-com"># str -&gt; float</span>
+quantity = <span class="tok-fn">int</span>(<span class="tok-str">&quot;6&quot;</span>)            <span class="tok-com"># str -&gt; int</span>
+receipt_code = <span class="tok-fn">str</span>(<span class="tok-num">404</span>)        <span class="tok-com"># int -&gt; str</span>
+
+<span class="tok-fn">print</span>(price * quantity)        <span class="tok-com"># 147.0</span>
+<span class="tok-fn">print</span>(<span class="tok-str">&quot;Order #&quot;</span> + receipt_code)</code></pre>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1</span>
+    </div>
+    <p>A cuca shop owner in Oshakati wants a quick till program. Ask the user for the price of an item (as text) into <code>price_text</code>, and the quantity bought (as text) into <code>qty_text</code>. Convert them into <code>price</code> (float) and <code>quantity</code> (int). Calculate <code>total</code>, rounded to 2 decimal places, then convert it into a string <code>total_text</code> so it can be printed as part of a single receipt sentence like: "Total due: N$55.50".</p>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2</span>
+    </div>
+    <p>A weather station in Lüderitz logs today's temperature as text: <code>temp_text = "23.6"</code>. Convert it to a float called <code>temp_float</code>, then create a whole-number version called <code>temp_int</code> using <code>int()</code>. Print a single sentence that reports both, like: "Exact: 23.6°C | Whole number: 23°C".</p>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l1-typecasting",
+    hub: "../../levels/level1.html",
+    index: 5,
+    total: 6,
+    nextHref: "finalChallenge.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level1/typeCasting.js"></script>
+
+</body>
+</html>

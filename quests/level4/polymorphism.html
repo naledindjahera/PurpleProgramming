@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymorphism — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level4.html" class="back-link">← Level 4</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#f2607f;--realm-b:#3a1424;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+    </div>
+    <p class="eyebrow">Unit 5 · Level 4</p>
+    <h1>Polymorphism</h1>
+    <p class="tagline">One method name, many behaviours</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p><strong>Polymorphism</strong> means different classes can share the same method name but have it behave differently for each class &mdash; you call the same method, and each object responds in its own way.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">The same method name, different behaviour</span>
+    </div>
+    <pre><code><span class="tok-kw">class</span> TaxiCombi:
+    <span class="tok-kw">def</span> travel(self):
+        <span class="tok-fn">print</span>(<span class="tok-str">&quot;The combi weaves through Katutura traffic.&quot;</span>)
+
+<span class="tok-kw">class</span> GameDrivenTruck:
+    <span class="tok-kw">def</span> travel(self):
+        <span class="tok-fn">print</span>(<span class="tok-str">&quot;The truck rumbles across the gravel toward Etosha.&quot;</span>)
+
+<span class="tok-kw">for</span> vehicle <span class="tok-kw">in</span> [TaxiCombi(), GameDrivenTruck()]:
+    vehicle.travel()   <span class="tok-com"># same method call, different result each time</span></code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <p>Create three classes &mdash; <code>Kapana</code>, <code>Vetkoek</code>, and <code>OshifimaMeal</code> &mdash; each with a method called <code>describe()</code> that prints a unique one-line description of that street food. Put one object of each class into a single list, then loop through the list calling <code>.describe()</code> on every object <strong>without checking what type each one is</strong> &mdash; that's polymorphism doing the work for you.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>The loop body should be a single line: item.describe(). You should never need an if/elif checking the class type — that's the whole point.</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l4-polymorphism",
+    hub: "../../levels/level4.html",
+    index: 5,
+    total: 7,
+    nextHref: "encapsulation.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level4/polymorphism.js"></script>
+
+</body>
+</html>

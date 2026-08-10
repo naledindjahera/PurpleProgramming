@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classes — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level4.html" class="back-link">← Level 4</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#f2607f;--realm-b:#3a1424;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+    </div>
+    <p class="eyebrow">Unit 1 · Level 4</p>
+    <h1>Classes</h1>
+    <p class="tagline">Blueprints for new kinds of things</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>A <strong>class</strong> is a blueprint for creating objects &mdash; it defines what properties and actions objects of that type will have. Nothing exists yet, it's just the design.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Defining an empty class</span>
+    </div>
+    <pre><code><span class="tok-kw">class</span> Vehicle:
+    <span class="tok-kw">pass</span>
+
+<span class="tok-kw">class</span> TaxiCombi:
+    <span class="tok-kw">pass</span>
+
+<span class="tok-fn">print</span>(type(Vehicle))
+<span class="tok-fn">print</span>(Vehicle)</code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <p>Create an empty class called <code>Learner</code>, and a second empty class called <code>Camp</code>. Print both classes directly (not instances) to confirm they exist, and print the <code>type()</code> of each class.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>A class only needs `pass` in its body if it has nothing else yet — that's completely valid Python.</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l4-classes",
+    hub: "../../levels/level4.html",
+    index: 1,
+    total: 7,
+    nextHref: "objects.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level4/classes.js"></script>
+
+</body>
+</html>

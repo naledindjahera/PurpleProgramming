@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 2 Final Challenge — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level2.html" class="back-link">← Level 2</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon is-crown">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8Z"/><path d="M5 21h14"/></svg>
+    </div>
+    <p class="eyebrow">Final Challenge · Level 2</p>
+    <h1>The Twin Sentinels</h1>
+    <p class="tagline">Branch, build, and answer back — all at once</p>
+  </div>
+
+  <section class="panel definition crystal">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">The Trial</span>
+    </div>
+    <p>Two Sentinels guard the exit of the Branching Paths. They will only lower their spears for a wizard who can wire together <strong>conditionals</strong>, <strong>functions</strong>, <strong>parameters</strong>, and <strong>return values</strong> in one working program.</p>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1 · Report Card</span>
+    </div>
+    <ul><li>Write a function <code>grade_learner(name, average)</code> that <strong>returns</strong> (does not print) a letter grade using the NSSC-style bands: A for 80&ndash;100, B for 70&ndash;79, C for 60&ndash;69, D for 50&ndash;59, and F below 50.</li><li>Write a second function <code>report_line(name, average)</code> that calls <code>grade_learner</code> internally and <strong>returns</strong> a formatted string like "Helvi: 84 -&gt; A".</li><li>Create a list called <code>learners</code> of at least 3 <code>(name, average)</code> pairs for learners from different Namibian towns.</li><li>Loop through the list, call <code>report_line</code> for each learner, and print every line.</li></ul>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2 · Class Summary</span>
+    </div>
+    <ul><li>Reuse (or rewrite) <code>grade_learner(name, average)</code> and <code>report_line(name, average)</code> exactly as in Challenge 1.</li><li>Create a list called <code>learners</code> of at least 5 <code>(name, average)</code> pairs.</li><li>Loop through the list, print <code>report_line</code> for each learner, <strong>and</strong> use a running counter variable <code>good_count</code> starting at 0 that increases by 1 every time a learner's grade is C or better.</li><li>After the loop, print a summary sentence with <code>good_count</code>, e.g. "3 out of 5 learners scored C or better."</li></ul>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Claim Level 3 →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l2-final",
+    hub: "../../levels/level2.html",
+    index: 6,
+    total: 6,
+    nextHref: "../../levels/levelSelect.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level2/finalChallenge.js"></script>
+
+</body>
+</html>

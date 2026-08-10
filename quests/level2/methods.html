@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methods — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level2.html" class="back-link">← Level 2</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#5ad0e0;--realm-b:#123a3e;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 3 · Level 2</p>
+    <h1>Methods</h1>
+    <p class="tagline">Built-in spells that live inside objects</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>A <strong>method</strong> is a built-in function that belongs to an object, like a string or a list. You call it using a dot, like <code>text.upper()</code>.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">String methods in action</span>
+    </div>
+    <pre><code>school = <span class="tok-str">&quot;  David Bezuidenhout High School  &quot;</span>
+
+<span class="tok-fn">print</span>(school.<span class="tok-fn">strip</span>())
+<span class="tok-fn">print</span>(school.<span class="tok-fn">upper</span>())
+<span class="tok-fn">print</span>(school.<span class="tok-fn">lower</span>())
+<span class="tok-fn">print</span>(school.<span class="tok-fn">strip</span>().<span class="tok-fn">replace</span>(<span class="tok-str">&quot;High School&quot;</span>, <span class="tok-str">&quot;SS&quot;</span>))
+<span class="tok-fn">print</span>(school.<span class="tok-fn">strip</span>().<span class="tok-fn">count</span>(<span class="tok-str">&quot;o&quot;</span>))</code></pre>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1</span>
+    </div>
+    <p>Ask the user to type their full name (deliberately with extra spaces and mixed case, to test it), and store it in <code>name</code>. Use <code>.strip()</code> and <code>.upper()</code> to build a cleaned version stored in <code>cleaned</code>. Print the original name (still with its spaces) and the cleaned version, on separate lines.</p>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2</span>
+    </div>
+    <p>A registration system receives messy raw text like <code>"  windhoek gymnasium  "</code> for school names. Ask the user to type a school name into <code>raw</code> (deliberately with extra spaces and lowercase letters, to test it). Build <code>clean</code> by chaining <code>.strip()</code> and <code>.title()</code> on <code>raw</code>. Build <code>lowered</code> by calling <code>.lower()</code> on <code>clean</code>. Count how many vowels (a, e, i, o, u) appear by checking each vowel with <code>.count()</code> on <code>lowered</code> and adding the five results together into <code>vowel_count</code>. Print the cleaned name and the vowel count, on separate lines.</p>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l2-methods",
+    hub: "../../levels/level2.html",
+    index: 3,
+    total: 6,
+    nextHref: "parameters.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level2/methods.js"></script>
+
+</body>
+</html>

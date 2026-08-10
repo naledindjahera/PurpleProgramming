@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sets — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level3.html" class="back-link">← Level 3</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#34d399;--realm-b:#123424;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 11 13"/><path d="M21 3 14.5 21l-3.5-8-8-3.5Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 4 · Level 3</p>
+    <h1>Sets</h1>
+    <p class="tagline">Collections with no duplicates, no order</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>A <strong>set</strong> stores unique values only &mdash; adding a duplicate does nothing, and sets support fast operations like union, intersection, and difference for comparing groups.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Set operations</span>
+    </div>
+    <pre><code>windhoek_trip = {<span class="tok-str">&quot;Naledi&quot;</span>, <span class="tok-str">&quot;Junias&quot;</span>, <span class="tok-str">&quot;Helvi&quot;</span>, <span class="tok-str">&quot;Tangeni&quot;</span>}
+swakop_trip = {<span class="tok-str">&quot;Helvi&quot;</span>, <span class="tok-str">&quot;Rauna&quot;</span>, <span class="tok-str">&quot;Tangeni&quot;</span>, <span class="tok-str">&quot;Meme Ndeshi&quot;</span>}
+
+<span class="tok-fn">print</span>(windhoek_trip | swakop_trip)   <span class="tok-com"># union - everyone on either trip</span>
+<span class="tok-fn">print</span>(windhoek_trip &amp; swakop_trip)   <span class="tok-com"># intersection - on both trips</span>
+<span class="tok-fn">print</span>(windhoek_trip - swakop_trip)   <span class="tok-com"># difference - only on the Windhoek trip</span></code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <p>Two camp activity sign-up lists (as Python lists, with some accidental duplicate names in each) are given for "Coding Workshop" and "Robotics Workshop". Convert both to sets. Then print: (1) how many <em>unique</em> learners signed up for coding, (2) the learners who signed up for <strong>both</strong> workshops, using intersection, (3) the learners who signed up for coding <strong>only</strong>, using difference, (4) the total number of unique learners across both workshops combined, using union and <code>len()</code>.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>set(some_list) instantly removes duplicates. len(set_a & set_b) gives you a count directly without needing to loop.</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l3-sets",
+    hub: "../../levels/level3.html",
+    index: 4,
+    total: 7,
+    nextHref: "stacks.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level3/sets.js"></script>
+
+</body>
+</html>

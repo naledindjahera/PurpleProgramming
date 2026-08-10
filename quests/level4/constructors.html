@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constructors — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level4.html" class="back-link">← Level 4</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#f2607f;--realm-b:#3a1424;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 3 · Level 4</p>
+    <h1>Constructors</h1>
+    <p class="tagline">Setting up an object the moment it's born</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>A <strong>constructor</strong> is the special method <code>__init__</code> that runs automatically when a new object is created, usually to set its starting values so you don't have to attach them by hand afterwards.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Using __init__ to set starting values</span>
+    </div>
+    <pre><code><span class="tok-kw">class</span> Learner:
+    <span class="tok-kw">def</span> __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+l1 = Learner(<span class="tok-str">&quot;Tangeni&quot;</span>, <span class="tok-num">11</span>)
+<span class="tok-fn">print</span>(l1.name, l1.grade)</code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <p>Write a class <code>Learner</code> with a constructor that accepts <code>name</code>, <code>region</code>, and <code>average</code> and stores all three as attributes. Create four <code>Learner</code> objects representing learners from four different Namibian regions, each with a different average mark. Loop through a list containing all four objects and print a line for each one in the format "Name (Region): Average%".</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>Put the four objects into a list right after creating them, e.g. learners = [l1, l2, l3, l4], then loop with a for statement.</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l4-constructors",
+    hub: "../../levels/level4.html",
+    index: 3,
+    total: 7,
+    nextHref: "inheritance.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level4/constructors.js"></script>
+
+</body>
+</html>

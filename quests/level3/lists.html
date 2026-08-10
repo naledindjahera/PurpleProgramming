@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lists — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level3.html" class="back-link">← Level 3</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#34d399;--realm-b:#123424;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+    </div>
+    <p class="eyebrow">Unit 1 · Level 3</p>
+    <h1>Lists</h1>
+    <p class="tagline">Ordered collections of anything</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>A <strong>list</strong> stores many values together in one variable, in order, and lets you add, remove, slice, and loop through them.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Creating and slicing a list</span>
+    </div>
+    <pre><code>towns = [<span class="tok-str">&quot;Windhoek&quot;</span>, <span class="tok-str">&quot;Swakopmund&quot;</span>, <span class="tok-str">&quot;Oshakati&quot;</span>, <span class="tok-str">&quot;Rundu&quot;</span>, <span class="tok-str">&quot;Keetmanshoop&quot;</span>]
+
+<span class="tok-fn">print</span>(towns[<span class="tok-num">0</span>])       <span class="tok-com"># first</span>
+<span class="tok-fn">print</span>(towns[-<span class="tok-num">1</span>])      <span class="tok-com"># last</span>
+<span class="tok-fn">print</span>(towns[<span class="tok-num">1</span>:<span class="tok-num">3</span>])     <span class="tok-com"># slice</span>
+towns.<span class="tok-fn">append</span>(<span class="tok-str">&quot;Otjiwarongo&quot;</span>)
+towns.<span class="tok-fn">remove</span>(<span class="tok-str">&quot;Rundu&quot;</span>)
+<span class="tok-fn">print</span>(towns)</code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <p>Store the population estimates (in thousands, as ints) of 6 Namibian towns in a list called <code>populations</code>, in the same order as a matching list called <code>towns</code>. Write a program that: (1) prints the town with the largest population using <code>max()</code> and <code>.index()</code>, (2) calculates and prints the total combined population using <code>sum()</code>, (3) calculates and prints the average population rounded to 1 decimal place, (4) uses slicing to print only the last 3 towns in the list.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>biggest = max(populations); then towns[populations.index(biggest)] gives you the matching town name, because both lists share the same order.</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l3-lists",
+    hub: "../../levels/level3.html",
+    index: 1,
+    total: 7,
+    nextHref: "strings.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level3/lists.js"></script>
+
+</body>
+</html>

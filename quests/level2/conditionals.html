@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditional Statements — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level2.html" class="back-link">← Level 2</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#5ad0e0;--realm-b:#123a3e;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+    </div>
+    <p class="eyebrow">Unit 1 · Level 2</p>
+    <h1>Conditional Statements</h1>
+    <p class="tagline">Choosing which path to take</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p><strong>Conditional statements</strong> let your program make decisions and run different code depending on whether something is <code>True</code> or <code>False</code>. Python uses <code>if</code>, <code>elif</code>, and <code>else</code> to branch between paths.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Branching with if / elif / else</span>
+    </div>
+    <pre><code>rainfall_mm = <span class="tok-num">18</span>
+
+<span class="tok-kw">if</span> rainfall_mm &gt;= <span class="tok-num">20</span>:
+    <span class="tok-fn">print</span>(<span class="tok-str">&quot;Good rains — plant the mahangu.&quot;</span>)
+<span class="tok-kw">elif</span> rainfall_mm &gt;= <span class="tok-num">10</span>:
+    <span class="tok-fn">print</span>(<span class="tok-str">&quot;Light rains — wait a little longer.&quot;</span>)
+<span class="tok-kw">else</span>:
+    <span class="tok-fn">print</span>(<span class="tok-str">&quot;Too dry — hold off planting.&quot;</span>)</code></pre>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1</span>
+    </div>
+    <p>Write a program that asks the user for the current temperature in Windhoek (as an int) and stores it in <code>temperature</code>. Print <code>"Hot"</code> if it's 30 or above, <code>"Mild"</code> if it's 20 or above (but below 30), otherwise print <code>"Cool"</code>.</p>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2</span>
+    </div>
+    <p>NamPower issues load-shedding stages from 0 (no cuts) to 4 (severe cuts). Write a program that asks the user for the current stage (as an int) into <code>stage</code>, and the current hour of the day (0–23, as an int) into <code>hour</code>. Print <code>"No power cuts today"</code> if the stage is 0. Otherwise, if the stage is 1 or 2, print <code>"Power cut expected this hour"</code> only if the hour is between 18 and 21 (inclusive), otherwise print <code>"Power is on for now"</code>. If the stage is 3 or 4, print <code>"Extended cuts likely — charge your devices"</code> no matter the hour.</p>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l2-conditionals",
+    hub: "../../levels/level2.html",
+    index: 1,
+    total: 6,
+    nextHref: "functions.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level2/conditionals.js"></script>
+
+</body>
+</html>

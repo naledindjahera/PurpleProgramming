@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objects — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level4.html" class="back-link">← Level 4</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#f2607f;--realm-b:#3a1424;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 12 12 21 4 12Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 2 · Level 4</p>
+    <h1>Objects</h1>
+    <p class="tagline">Real things made from a blueprint</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>An <strong>object</strong> is a specific instance made from a class. Each object is separate from the others, even though they share the same blueprint.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Creating multiple objects from one class</span>
+    </div>
+    <pre><code><span class="tok-kw">class</span> TaxiCombi:
+    <span class="tok-kw">pass</span>
+
+combi_a = TaxiCombi()
+combi_b = TaxiCombi()
+
+<span class="tok-fn">print</span>(combi_a)
+<span class="tok-fn">print</span>(combi_b)
+<span class="tok-fn">print</span>(combi_a <span class="tok-kw">is</span> combi_b)   <span class="tok-com"># False - two separate objects</span></code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <p>Using the <code>Learner</code> class from the last unit, create <strong>three</strong> separate <code>Learner</code> objects with different variable names. Manually attach a <code>.name</code> attribute to each one after creation (e.g. <code>learner1.name = "Helvi"</code>). Print a sentence for each object using its <code>.name</code>, and print <code>learner1 is learner2</code> to prove they are different objects even though they came from the same class.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>You can attach a new attribute to an object at any time just by assigning to it with dot notation, even outside the class definition.</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l4-objects",
+    hub: "../../levels/level4.html",
+    index: 2,
+    total: 7,
+    nextHref: "constructors.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level4/objects.js"></script>
+
+</body>
+</html>

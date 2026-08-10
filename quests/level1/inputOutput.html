@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input & Output — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level1.html" class="back-link">← Level 1</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#a78bfa;--realm-b:#3c2065;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 11 13"/><path d="M21 3 14.5 21l-3.5-8-8-3.5Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 4 · Level 1</p>
+    <h1>Input &amp; Output</h1>
+    <p class="tagline">Speaking with the world</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p><strong>Output</strong> is how a program shows information using <code>print()</code>. <strong>Input</strong> lets the program collect information from the user using <code>input()</code> &mdash; which always hands back a string, no matter what the user typed.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Collecting and displaying information</span>
+    </div>
+    <pre><code>town = <span class="tok-fn">input</span>(<span class="tok-str">&quot;Which Namibian town are you from? &quot;</span>)
+temp_today = <span class="tok-fn">input</span>(<span class="tok-str">&quot;What is today&#x27;s temperature in Celsius? &quot;</span>)
+
+<span class="tok-fn">print</span>(<span class="tok-str">&quot;Hello from &quot;</span> + town + <span class="tok-str">&quot;!&quot;</span>)
+<span class="tok-fn">print</span>(<span class="tok-str">&quot;It is &quot;</span> + temp_today + <span class="tok-str">&quot; degrees where you are.&quot;</span>)</code></pre>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1</span>
+    </div>
+    <p>Write a small check-in program for camp arrivals. Use <code>input()</code> to collect their name into <code>name</code>, their region (e.g. Khomas, Erongo, Oshana) into <code>region</code>, and how many hours they travelled into <code>hours</code>. Print a single welcome message that includes all three pieces of information, then print a second line saying whether they travelled a "short trip" (2 hours or less) or a "long journey" (more than 2 hours) &mdash; remember <code>input()</code> always returns text, so it's fine to use <code>int(input(...))</code> to compare the hours numerically.</p>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2</span>
+    </div>
+    <p>Write a farewell program for the last day of camp. Use <code>input()</code> to collect the camper's favourite activity into <code>activity</code>, and how many days they attended into <code>days</code> (converted to a number). Print a farewell message that includes their favourite activity, then print a second line saying whether they were a "weekend camper" (3 days or fewer) or a "full week camper" (more than 3 days).</p>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l1-io",
+    hub: "../../levels/level1.html",
+    index: 4,
+    total: 6,
+    nextHref: "typeCasting.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level1/inputOutput.js"></script>
+
+</body>
+</html>

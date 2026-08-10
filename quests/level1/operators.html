@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operators — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level1.html" class="back-link">← Level 1</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#a78bfa;--realm-b:#3c2065;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 3 · Level 1</p>
+    <h1>Operators</h1>
+    <p class="tagline">The art of transformation</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p><strong>Operators</strong> perform operations on variables and values. Python has arithmetic (<code>+ - * /</code>), comparison (<code>== &lt; &gt;</code>), and logical (<code>and or not</code>) operators &mdash; and floor division <code>//</code> and modulo <code>%</code> for splitting things up cleanly.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Arithmetic, comparison, floor division and modulo</span>
+    </div>
+    <pre><code><span class="tok-com"># Sharing 250 N$ in prize money between 6 campers</span>
+prize = <span class="tok-num">250</span>
+campers = <span class="tok-num">6</span>
+<span class="tok-fn">print</span>(prize // campers)   <span class="tok-com"># 41  - each camper&#x27;s whole-number share</span>
+<span class="tok-fn">print</span>(prize % campers)    <span class="tok-com"># 4   - the leftover that can&#x27;t be split evenly</span>
+
+x, y = <span class="tok-num">5</span>, <span class="tok-num">3</span>
+<span class="tok-fn">print</span>(x &gt; y <span class="tok-kw">and</span> y &gt; <span class="tok-num">0</span>)    <span class="tok-com"># True</span>
+<span class="tok-fn">print</span>(x == y <span class="tok-kw">or</span> y &lt; <span class="tok-num">10</span>)   <span class="tok-com"># True</span></code></pre>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1</span>
+    </div>
+    <p>The camp kitchen in Otjiwarongo has <code>bread_loaves = 47</code> loaves to split evenly among <code>tables = 9</code>. Write a program that: (1) calculates how many whole loaves go on each table using <code>//</code> and stores it as <code>per_table</code>, (2) calculates how many loaves are left over using <code>%</code> and stores it as <code>leftover</code>, (3) checks whether the leftover amount is enough to give every table at least one <em>extra</em> half-loaf (<code>leftover &gt;= tables</code>), storing the result as <code>enough_for_extra</code> and printing it, and (4) prints a full sentence summary using all of the values.</p>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2</span>
+    </div>
+    <p>A minibus taxi from Windhoek to Swakopmund has <code>capacity_seats = 16</code> and <code>passengers_booked = 19</code>. Write a program that: (1) calculates how many passengers are over capacity using subtraction and stores it as <code>overbooked</code>, (2) checks whether the taxi is full using a comparison operator (<code>passengers_booked &gt;= capacity_seats</code>), storing the result as <code>is_full</code> and printing it, (3) checks whether the taxi is both full <strong>and</strong> overbooked using a logical operator, storing the result as <code>needs_second_trip</code> and printing it, and (4) prints a full sentence summary using all of the values.</p>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l1-operators",
+    hub: "../../levels/level1.html",
+    index: 3,
+    total: 6,
+    nextHref: "inputOutput.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level1/operators.js"></script>
+
+</body>
+</html>

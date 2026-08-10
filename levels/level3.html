@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Structures — Purple Programming</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<header class="hub-hero" style="--hero-img:url('../assets/backgrounds/level3.jpg');">
+  <div class="hub-hero-inner">
+    <a href="levelSelect.html" class="back-link" style="margin-bottom:14px;display:inline-flex;">← All Realms</a>
+  </div>
+</header>
+
+<main class="hub-container">
+
+  <div class="hub-header">
+    <span class="level-pill">Level 3 · 7 Units</span>
+    <h1>Data Structures</h1>
+    <h2>Almost There</h2>
+    <p>Use lists, strings, dictionaries, sets, stacks, and queues to organize information clearly and efficiently.</p>
+  </div>
+
+  <div class="hub-progress">
+    <div class="progress-track-label">
+      <span>Unit Progress</span>
+      <span id="unitProgressLabel">0 / 7</span>
+    </div>
+    <div class="progress-track-bar">
+      <div class="progress-track-fill" id="unitProgressFill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div class="unit-path" id="unitPath">
+
+    <div class="unit-row" data-quest="l3-lists" data-icon="orb">
+      <div class="unit-node"></div>
+      <div class="unit-card">
+        <div>
+          <small>Unit 1</small>
+          <h3>Lists</h3>
+        </div>
+      </div>
+      <a class="unit-go" data-role="go" href="../quests/level3/lists.html"></a>
+    </div>
+
+    <div class="unit-row" data-quest="l3-strings" data-icon="diamond">
+      <div class="unit-node"></div>
+      <div class="unit-card">
+        <div>
+          <small>Unit 2</small>
+          <h3>Strings</h3>
+        </div>
+      </div>
+      <a class="unit-go" data-role="go" href="../quests/level3/strings.html"></a>
+    </div>
+
+    <div class="unit-row" data-quest="l3-dictionaries" data-icon="bolt">
+      <div class="unit-node"></div>
+      <div class="unit-card">
+        <div>
+          <small>Unit 3</small>
+          <h3>Dictionaries</h3>
+        </div>
+      </div>
+      <a class="unit-go" data-role="go" href="../quests/level3/dictionaries.html"></a>
+    </div>
+
+    <div class="unit-row" data-quest="l3-sets" data-icon="plane">
+      <div class="unit-node"></div>
+      <div class="unit-card">
+        <div>
+          <small>Unit 4</small>
+          <h3>Sets</h3>
+        </div>
+      </div>
+      <a class="unit-go" data-role="go" href="../quests/level3/sets.html"></a>
+    </div>
+
+    <div class="unit-row" data-quest="l3-stacks" data-icon="refresh">
+      <div class="unit-node"></div>
+      <div class="unit-card">
+        <div>
+          <small>Unit 5</small>
+          <h3>Stacks</h3>
+        </div>
+      </div>
+      <a class="unit-go" data-role="go" href="../quests/level3/stacks.html"></a>
+    </div>
+
+    <div class="unit-row" data-quest="l3-queues" data-icon="book">
+      <div class="unit-node"></div>
+      <div class="unit-card">
+        <div>
+          <small>Unit 6</small>
+          <h3>Queues</h3>
+        </div>
+      </div>
+      <a class="unit-go" data-role="go" href="../quests/level3/queues.html"></a>
+    </div>
+
+    <div class="unit-row is-final" data-quest="l3-final" data-icon="crown">
+      <div class="unit-node"></div>
+      <div class="unit-card">
+        <div>
+          <small>Final Challenge</small>
+          <h3>The Vault Warden</h3>
+        </div>
+      </div>
+      <a class="unit-go" data-role="go" href="../quests/level3/finalChallenge.html"></a>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="../engine/save.js"></script>
+<script>
+  const ICONS = {
+    bolt: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>',
+    book: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2V5Z"/><path d="M7 3v16"/></svg>',
+    crown: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8Z"/><path d="M5 21h14"/></svg>',
+    diamond: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 12 12 21 4 12Z"/></svg>',
+    orb: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>',
+    plane: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 11 13"/><path d="M21 3 14.5 21l-3.5-8-8-3.5Z"/></svg>',
+    refresh: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>',
+    check: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>',
+    lock: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+    arrow: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+  };
+
+  const LEVEL = 3;
+  const prog = levelProgress(LEVEL);
+  document.getElementById("unitProgressLabel").textContent = `${prog.done} / ${prog.total}`;
+  document.getElementById("unitProgressFill").style.width = `${(prog.done / prog.total) * 100}%`;
+
+  document.querySelectorAll(".unit-row").forEach(row => {
+    const questId = row.dataset.quest;
+    const icon = row.dataset.icon;
+    const node = row.querySelector(".unit-node");
+    const go = row.querySelector('[data-role="go"]');
+
+    const complete = isQuestComplete(questId);
+    const unlocked = isQuestUnlocked(questId);
+    const current = unlocked && !complete;
+
+    if (complete) {
+      row.classList.add("is-complete");
+      node.innerHTML = ICONS.check;
+      go.innerHTML = ICONS.check;
+    } else if (current) {
+      row.classList.add("is-current");
+      node.innerHTML = ICONS[icon];
+      go.innerHTML = ICONS.arrow;
+    } else {
+      row.classList.add("is-locked");
+      node.innerHTML = ICONS.lock;
+      go.innerHTML = ICONS.lock;
+      go.removeAttribute("href");
+      go.setAttribute("aria-disabled", "true");
+      go.addEventListener("click", e => e.preventDefault());
+    }
+  });
+</script>
+
+</body>
+</html>

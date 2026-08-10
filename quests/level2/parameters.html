@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parameters & Arguments — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level2.html" class="back-link">← Level 2</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#5ad0e0;--realm-b:#123a3e;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 11 13"/><path d="M21 3 14.5 21l-3.5-8-8-3.5Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 4 · Level 2</p>
+    <h1>Parameters &amp; Arguments</h1>
+    <p class="tagline">Feeding information into a spell</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p><strong>Parameters</strong> are the placeholder names listed in a function's definition that let it accept information from outside. <strong>Arguments</strong> are the actual values you pass in when you call the function, filling in those parameters.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Passing data into a function</span>
+    </div>
+    <pre><code><span class="tok-kw">def</span> describe_trip(town, distance_km, travel_mode=<span class="tok-str">&quot;bus&quot;</span>):
+    <span class="tok-fn">print</span>(f<span class="tok-str">&quot;{town} is {distance_km}km away, travelling by {travel_mode}.&quot;</span>)
+
+describe_trip(<span class="tok-str">&quot;Rundu&quot;</span>, <span class="tok-num">715</span>)
+describe_trip(<span class="tok-str">&quot;Luderitz&quot;</span>, <span class="tok-num">340</span>, <span class="tok-str">&quot;car&quot;</span>)</code></pre>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1</span>
+    </div>
+    <p>Write a function <code>describe_trip(town, distance_km, travel_mode="bus")</code> that prints a sentence in the format: "Rundu is 715km away, travelling by bus." Give <code>travel_mode</code> a default value of <code>"bus"</code>. Call the function twice: once giving only <code>town</code> and <code>distance_km</code> (so the default is used), and once overriding <code>travel_mode</code> with a different value like <code>"car"</code>.</p>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2</span>
+    </div>
+    <p>Write a function <code>market_bill(item, price_per_kg, weight_kg)</code> that calculates and prints the total cost of buying <code>weight_kg</code> kilograms of <code>item</code> at the Oshetu open market at <code>price_per_kg</code> per kilogram, in the format: "3.5kg of tomatoes = N$52.50". Give <code>weight_kg</code> a default value of <code>1</code>. Call the function three times: once giving all three arguments, once leaving out the weight so the default is used, and once using keyword arguments in a different order than the parameters were defined.</p>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l2-parameters",
+    hub: "../../levels/level2.html",
+    index: 4,
+    total: 6,
+    nextHref: "returnValues.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level2/parameters.js"></script>
+
+</body>
+</html>

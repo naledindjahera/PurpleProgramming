@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 3 Final Challenge — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level3.html" class="back-link">← Level 3</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon is-crown">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8Z"/><path d="M5 21h14"/></svg>
+    </div>
+    <p class="eyebrow">Final Challenge · Level 3</p>
+    <h1>The Vault Warden</h1>
+    <p class="tagline">Structure your knowledge, or be turned away</p>
+  </div>
+
+  <section class="panel definition crystal">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">The Trial</span>
+    </div>
+    <p>The Vault Warden guards Namibia's ancient census scroll. To pass, a wizard must combine <strong>lists</strong>, <strong>dictionaries</strong>, and <strong>sets</strong> to make sense of messy, real data.</p>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <ul><li>You're given a list of tuples: <code>records = [("Khomas", "Windhoek"), ("Erongo", "Swakopmund"), ("Khomas", "Rehoboth"), ("Oshana", "Oshakati"), ("Erongo", "Walvis Bay"), ("Khomas", "Windhoek")]</code> pairing a region with a town that reported in (note the duplicate Windhoek entry, and repeated regions).</li><li>Build a dictionary <code>region_towns</code> where each key is a region and each value is a <strong>list</strong> of the towns that reported for it, with no duplicate towns inside any list.</li><li>Print the dictionary so each region shows on its own line as "Khomas: ['Windhoek', 'Rehoboth']".</li><li>Using a set built from the first elements of <code>records</code>, print how many <strong>unique</strong> regions reported in total.</li><li>Find and print the region with the <strong>most</strong> distinct towns reporting, using the dictionary you built.</li></ul>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>Loop through records; for each (region, town) pair, use dict.setdefault(region, []) to get-or-create the list, then only append the town if it isn't already in that list.</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Claim Level 4 →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l3-final",
+    hub: "../../levels/level3.html",
+    index: 7,
+    total: 7,
+    nextHref: "../../levels/levelSelect.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level3/finalChallenge.js"></script>
+
+</body>
+</html>
