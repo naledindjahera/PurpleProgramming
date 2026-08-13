@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 4 Final Challenge — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level4.html" class="back-link">← Level 4</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon is-crown">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8Z"/><path d="M5 21h14"/></svg>
+    </div>
+    <p class="eyebrow">Final Challenge · Level 4</p>
+    <h1>The Archmage's Trial</h1>
+    <p class="tagline">Classes, inheritance, and polymorphism, together at last</p>
+  </div>
+
+  <section class="panel definition crystal">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">The Trial</span>
+    </div>
+    <p>The Archmage will only grant the title of OOP Master to a wizard who can design a small class hierarchy from nothing &mdash; using a <strong>parent class</strong>, at least one <strong>child class</strong>, a <strong>private attribute</strong>, and <strong>polymorphism</strong> across a list of mixed objects.</p>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <ul><li>Create a parent class <code>CampActivity</code> with a constructor storing <code>name</code> and a private attribute <code>__spots_left</code> (starting spots available). Add a method <code>book_spot()</code> that reduces <code>__spots_left</code> by 1 if any are left (printing confirmation), otherwise prints "Fully booked". Add a method <code>info()</code> that prints the activity name and remaining spots.</li><li>Create a child class <code>OutdoorActivity</code> that inherits from <code>CampActivity</code>, adds its own attribute <code>weather_risk</code> (str, e.g. "low"/"high"), and <strong>overrides</strong> <code>info()</code> to call the parent's <code>info()</code> with <code>super()</code> and then print the weather risk on an extra line.</li><li>Create at least one plain <code>CampActivity</code> object (e.g. "Coding Workshop") and at least one <code>OutdoorActivity</code> object (e.g. "Dune Hike", weather_risk="high").</li><li>Put every activity object into a single list and loop through it calling <code>.info()</code> on each one, relying on polymorphism &mdash; the loop should not check what type any object is.</li><li>After the loop, call <code>book_spot()</code> a few times on one of the objects (including once when it should be full) to prove the encapsulated spot count is being protected correctly, printing <code>info()</code> again at the end to confirm.</li></ul>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>Only OutdoorActivity needs its own info() — CampActivity's version already works fine for itself and gets reused by super().info() inside the child.</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Complete the Kingdom →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l4-final",
+    hub: "../../levels/level4.html",
+    index: 7,
+    total: 7,
+    nextHref: "../../levels/levelSelect.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level4/finalChallenge.js"></script>
+
+</body>
+</html>

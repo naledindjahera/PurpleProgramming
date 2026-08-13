@@ -11,7 +11,7 @@ const LEVEL_QUESTS = {
   1: ["l1-variables", "l1-datatypes", "l1-operators", "l1-io", "l1-typecasting", "l1-final"],
   2: ["l2-conditionals", "l2-functions", "l2-methods", "l2-parameters", "l2-return", "l2-final"],
   3: ["l3-lists", "l3-strings", "l3-dictionaries", "l3-sets", "l3-stacks", "l3-queues", "l3-final"],
-  4: ["l4-classes", "l4-objects", "l4-constructors", "l4-inheritance", "l4-polymorphism", "l4-encapsulation", "l4-final"]
+  4: ["ol-unit1", "ol-unit2", "ol-unit3", "ol-final"]
 };
 
 const TOTAL_LEVELS = Object.keys(LEVEL_QUESTS).length;
