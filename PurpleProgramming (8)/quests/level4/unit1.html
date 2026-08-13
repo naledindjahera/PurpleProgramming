@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Namib Tiles — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level4.html" class="back-link">← Level 4</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+
+    <p class="eyebrow">Unit 1 · Level 4 · The Olympiad</p>
+    <h1>The Namib Mosaic</h1>
+    <p class="tagline">Two challenges — no new syntax, just clear thinking</p>
+  </div>
+
+
+  <!-- ================= CHALLENGE 1 (EASY) ================= -->
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Challenge 1 · the puzzle</span>
+    </div>
+    <pre><code><span class="tok-com"># A guesthouse in Lüderitz tiles its courtyard floor in a</span>
+<span class="tok-com"># repeating pattern of terracotta and cream tiles — like a</span>
+<span class="tok-com"># giant chessboard. The courtyard is always a square, S tiles</span>
+<span class="tok-com"># by S tiles, and by tradition the top-right tile is always</span>
+<span class="tok-com"># terracotta.</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Given S, how many terracotta tiles does the courtyard have?</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input: 4    Output: 8</span>
+<span class="tok-com"># Input: 7    Output: 25</span></code></pre>
+  </section>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">✎</span>
+      <span class="panel-title">Working it out</span>
+    </div>
+    <p>When <strong>S is even</strong>, the two colours split the courtyard exactly evenly, so terracotta tiles = S² ÷ 2. For S = 4: 16 ÷ 2 = <strong>8</strong>.</p>
+    <p>When <strong>S is odd</strong>, the tiles can't split evenly — one colour gets exactly one extra tile. Since the top-right tile is always terracotta, terracotta gets that extra tile: (S² + 1) ÷ 2. For S = 7: (49 + 1) ÷ 2 = <strong>25</strong>.</p>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1 — Warm-up</span>
+    </div>
+    <p>Write a program that reads the courtyard's side length <code>side</code> as an integer, then prints the number of terracotta tiles. Handle both even and odd side lengths correctly.</p>
+
+    <div class="reveal-row">
+      <p class="link-toggle" data-toggle="hintBox1" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</p>
+    </div>
+    <div id="hintBox1" class="reveal-box" hidden>
+      <p>Use <code>side % 2</code> to check whether the side length is odd. If it's odd, add 1 before dividing by 2 (or use integer division <code>//</code> so the extra tile isn't dropped).</p>
+    </div>
+
+    <div class="reveal-row">
+      <div class="link-toggle" data-toggle="solutionBox1" data-show-label="▸ Show solution" data-hide-label="▾ Hide solution">▸ Show solution</div>
+    </div>
+    <div id="solutionBox1" class="reveal-box" hidden>
+      <pre><code><span class="tok-fn">side</span> = <span class="tok-fn">int</span>(<span class="tok-fn">input</span>())
+
+<span class="tok-kw">if</span> side % <span class="tok-num">2</span> == <span class="tok-num">0</span>:
+    <span class="tok-fn">print</span>(side * side // <span class="tok-num">2</span>)
+<span class="tok-kw">else</span>:
+    <span class="tok-fn">print</span>((side * side + <span class="tok-num">1</span>) // <span class="tok-num">2</span>)</code></pre>
+    </div>
+
+    <textarea id="studentCode1" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="testsBox1" data-show-label="▸ Expected output" data-hide-label="▾ Hide expected output">▸ Expected output</button>
+    </div>
+    <div id="testsBox1" class="reveal-box" hidden>
+      Try these side lengths and check your output matches:<br>
+      1.a &nbsp;S=4 &nbsp;→ 8<br>
+      1.b &nbsp;S=7 &nbsp;→ 25<br>
+      1.c &nbsp;S=1 &nbsp;→ 1<br>
+      1.d &nbsp;S=10 → 50
+    </div>
+
+  </section>
+
+  <!-- ================= CHALLENGE 2 (HARD) ================= -->
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Challenge 2 · the puzzle</span>
+    </div>
+    <pre><code><span class="tok-com"># The guesthouse next door has a RECTANGULAR courtyard —</span>
+<span class="tok-com"># width W tiles and height H tiles — tiled with the same</span>
+<span class="tok-com"># purple/violet checkerboard pattern. As always, the</span>
+<span class="tok-com"># top-right tile is purple.</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Given W and H, how many purple tiles are there?</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input: 5 3   Output: 8</span></code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2 — No Solution Given</span>
+    </div>
+    <p>Write a program that reads two integers, the width <code>W</code> and height <code>H</code> of the courtyard (on one line, space-separated, or on two lines — your choice), and prints the number of purple tiles. This time the courtyard isn't a square, so the neat "÷2" trick from Challenge 1 won't directly apply — you'll need to reason about which tiles are actually purple.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox2" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+    <div id="hintBox2" class="reveal-box" hidden>
+      Number the columns 1..W and the rows 1..H. The top-right tile is at row 1, column W, and it's purple. A tile at (row, col) is the <em>same colour</em> as the top-right tile exactly when <code>(row + col) % 2 == (1 + W) % 2</code>. Loop over every row and column, count the matches — that's your purple total. (There's also a closed-form formula if you'd rather work it out on paper, but the double loop is the most reliable way to get it right.)
+    </div>
+
+    <textarea id="studentCode2" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage2"></p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="testsBox2" data-show-label="▸ Expected output" data-hide-label="▾ Hide expected output">▸ Expected output</button>
+    </div>
+    <div id="testsBox2" class="reveal-box" hidden>
+      Try these width/height pairs and check your output matches:<br>
+      2.a &nbsp;W=4, H=6 &nbsp;→ 12<br>
+      2.b &nbsp;W=6, H=5 &nbsp;→ 15<br>
+      2.c &nbsp;W=9, H=9 &nbsp;→ 41<br>
+      2.d &nbsp;W=10, H=7 → 35
+    </div>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "ol-unit1",
+    hub: "../../levels/level4.html",
+    index: 1,
+    total: 4,
+    nextHref: "unit2.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level4/unit1.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dictionaries — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level3.html" class="back-link">← Level 3</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#34d399;--realm-b:#123424;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 3 · Level 3</p>
+    <h1>Dictionaries</h1>
+    <p class="tagline">Looking things up by name, not number</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>A <strong>dictionary</strong> stores data as <code>key: value</code> pairs, so instead of looking something up by position (like a list), you look it up by name.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Building and reading a dictionary</span>
+    </div>
+    <pre><code>regions = {
+    <span class="tok-str">&quot;Khomas&quot;</span>: <span class="tok-str">&quot;Windhoek&quot;</span>,
+    <span class="tok-str">&quot;Erongo&quot;</span>: <span class="tok-str">&quot;Swakopmund&quot;</span>,
+    <span class="tok-str">&quot;Oshana&quot;</span>: <span class="tok-str">&quot;Oshakati&quot;</span>,
+}
+
+<span class="tok-fn">print</span>(regions[<span class="tok-str">&quot;Khomas&quot;</span>])
+regions[<span class="tok-str">&quot;Zambezi&quot;</span>] = <span class="tok-str">&quot;Katima Mulilo&quot;</span>
+<span class="tok-fn">print</span>(regions.get(<span class="tok-str">&quot;Kavango East&quot;</span>, <span class="tok-str">&quot;Unknown region&quot;</span>))
+
+<span class="tok-kw">for</span> region, capital <span class="tok-kw">in</span> regions.items():
+    <span class="tok-fn">print</span>(region, <span class="tok-str">&quot;-&gt;&quot;</span>, capital)</code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <p>Build a dictionary called <code>menu</code> for a camp tuck-shop where each key is a food item (str) and each value is its price in N$ (float) &mdash; include at least 5 items (e.g. "vetkoek", "fat cake", "kapana"). Then: (1) ask the user to type an item name and print its price using <code>.get()</code> with a fallback message if it isn't on the menu, (2) add one new item to the dictionary after it's created, (3) loop through the whole menu and print every item with its price formatted as "Item: N$Price", (4) print the total value of the whole menu using <code>sum()</code> on <code>.values()</code>.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>menu.get(item, None) returns None if the key is missing — check that first before deciding what to print. sum(menu.values()) adds up every price in one line.</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l3-dictionaries",
+    hub: "../../levels/level3.html",
+    index: 3,
+    total: 7,
+    nextHref: "sets.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level3/dictionaries.js"></script>
+
+</body>
+</html>

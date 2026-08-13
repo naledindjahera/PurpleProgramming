@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 1 Final Challenge — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level1.html" class="back-link">← Level 1</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon is-crown">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8Z"/><path d="M5 21h14"/></svg>
+    </div>
+    <p class="eyebrow">Final Challenge · Level 1</p>
+    <h1>The Crystal Guardian</h1>
+    <p class="tagline">Every rune you've learned, tested at once</p>
+  </div>
+
+  <section class="panel definition crystal">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">The Trial</span>
+    </div>
+    <p>The Crystal Guardian blocks the path out of Level 1. To get past it, you'll need to combine everything you've learned — <strong>variables</strong>, <strong>data types</strong>, <strong>operators</strong>, <strong>input &amp; output</strong>, and <strong>type casting</strong> — into two working programs.</p>
+  </section>
+
+  <!-- ================= Challenge 1 ================= -->
+  <section class="panel challenge" id="challenge1">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1 · Class Results</span>
+    </div>
+    <ul><li>Ask for the number of learners who wrote a test (as text) into <code>learners</code>, and the total marks available (as text) into <code>total_marks</code> — convert both to <code>int</code>.</li><li>Ask for the class average mark (as text) into <code>class_avg</code>, and convert it to <code>float</code>.</li><li>Calculate the average as a <strong>percentage</strong> of the total marks, rounded to 1 decimal place, and store it as <code>percentage</code>.</li><li>Using a comparison operator, check whether the class reached the pass benchmark of 50%, store it as <code>passed</code>, and print it.</li><li>Using a logical operator, check whether the class both passed <em>and</em> had more than 20 learners write the test, store it as <code>strong_group</code>, and print it.</li><li>Finish with one printed sentence summarising the result, e.g. "31 learners averaged 64.2% — the class passed."</li></ul>
+
+    <textarea id="studentCode1" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge1">Check Challenge 1</button>
+    </div>
+    <p class="quest-status" id="challenge1Message"></p>
+  </section>
+
+  <!-- ================= Challenge 2 ================= -->
+  <section class="panel challenge" id="challenge2" style="display:none;">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2 · Camp Store Weekly Target</span>
+    </div>
+    <ul><li>Ask for the number of items sold this week (as text) into <code>items_sold</code>, and the price of each item (as text) into <code>price_each</code> — convert to <code>int</code> and <code>float</code>.</li><li>Calculate <code>revenue = items_sold * price_each</code>, rounded to 2 decimal places.</li><li>Using a comparison operator, check whether revenue reached the weekly target of 500, store it as <code>hit_target</code>, and print it.</li><li>Using a logical operator, check whether the store both hit the target <em>and</em> sold more than 50 items, store it as <code>big_week</code>, and print it.</li><li>Finish with one printed sentence that uses type casting to include the revenue, e.g. "Revenue: N$612.5 — target reached."</li></ul>
+
+    <textarea id="studentCode2" class="code-input" placeholder="Paste your Python code here..." spellcheck="false"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge 2</button>
+    </div>
+    <p class="quest-status" id="challenge2Message"></p>
+  </section>
+
+  <!-- ================= Locked Message ================= -->
+  <section class="panel challenge challenge-locked" id="challenge2Locked">
+    <div class="panel-label">
+      <span class="panel-badge">🔒</span>
+      <span class="panel-title">Challenge 2 Locked</span>
+    </div>
+    <p>Complete Challenge 1 to unlock Challenge 2.</p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Claim Level 2 →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l1-final",
+    hub: "../../levels/level1.html",
+    index: 6,
+    total: 6,
+    nextHref: "../../levels/levelSelect.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+<script src="../../engine/level1/finalChallenge.js"></script>
+
+</body>
+</html>

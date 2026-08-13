@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Your Path — Purple Programming</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<header class="select-header">
+  <a href="../index.html" class="back-link" style="justify-content:center;display:flex;margin-top:18px;">← Coding Camp · Foundation</a>
+  <h1>Let's start learning</h1>
+  <p>Be the master of Purple Programming</p>
+
+  <div class="progress-track">
+    <div class="progress-track-label">
+      <span>Foundation Progress</span>
+      <span id="progressLabel">0 / 4</span>
+    </div>
+    <div class="progress-track-bar">
+      <div class="progress-track-fill" id="progressFill" style="width:0%"></div>
+    </div>
+  </div>
+</header>
+
+<main class="realm-grid" id="realmGrid">
+
+  <article class="realm-card" data-level="1">
+    <div class="realm-art" style="--realm-img:url('../assets/backgrounds/level1.png');">
+      <span class="realm-level-tag">Level 1</span>
+      <span class="realm-lock-badge" data-role="badge"></span>
+      <span class="realm-subtitle">The Beginning</span>
+    </div>
+    <div class="realm-body">
+      <h2>Programming Fundamentals</h2>
+      <p class="realm-desc">Master Variables, Data Types, Operators, Input & Output, and Type Casting — then face the Crystal Guardian.</p>
+      <p class="realm-lock-copy" data-role="lock-copy" hidden></p>
+      <div class="realm-topics">
+        <span>Variables</span><span>Data Types</span><span>Operators</span><span>Input &amp; Output</span><span>Type Casting</span>
+      </div>
+      <div class="realm-cta">
+        <button class="btn btn-primary" data-role="cta">Enter Realm →</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="realm-card" data-level="2">
+    <div class="realm-art" style="--realm-img:url('../assets/backgrounds/level2.png');">
+      <span class="realm-level-tag">Level 2</span>
+      <span class="realm-lock-badge" data-role="badge"></span>
+      <span class="realm-subtitle">The Next Level</span>
+    </div>
+    <div class="realm-body">
+      <h2>Control &amp; Functions</h2>
+      <p class="realm-desc">Master the art of conditional statements, loops, and functions. Shape the flow of magic with purpose and precision.</p>
+      <p class="realm-lock-copy" data-role="lock-copy" hidden></p>
+      <div class="realm-topics">
+        <span>Conditionals</span><span>Functions</span><span>Methods</span><span>Parameters</span><span>Return Values</span>
+      </div>
+      <div class="realm-cta">
+        <button class="btn btn-ghost" data-role="cta">Locked</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="realm-card" data-level="3">
+    <div class="realm-art" style="--realm-img:url('../assets/backgrounds/level3.jpg');">
+      <span class="realm-level-tag">Level 3</span>
+      <span class="realm-lock-badge" data-role="badge"></span>
+      <span class="realm-subtitle">Almost There</span>
+    </div>
+    <div class="realm-body">
+      <h2>Data Structures</h2>
+      <p class="realm-desc">Use lists, strings, dictionaries, sets, stacks, and queues to organize information clearly and efficiently.</p>
+      <p class="realm-lock-copy" data-role="lock-copy" hidden></p>
+      <div class="realm-topics">
+        <span>Lists</span><span>Strings</span><span>Dictionaries</span><span>Sets</span><span>Stacks</span><span>Queues</span>
+      </div>
+      <div class="realm-cta">
+        <button class="btn btn-ghost" data-role="cta">Locked</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="realm-card" data-level="4">
+    <div class="realm-art" style="--realm-img:url('../assets/backgrounds/level4.png');">
+      <span class="realm-level-tag">Level 4</span>
+      <span class="realm-lock-badge" data-role="badge"></span>
+      <span class="realm-subtitle">The finale</span>
+    </div>
+    <div class="realm-body">
+      <h2>The Olympiad</h2>
+      <p class="realm-desc">No new syntax — just everything you've learned so far, challenges inspired by the real IITPSA Programming Olympiad.</p>
+      <p class="realm-lock-copy" data-role="lock-copy" hidden></p>
+      <div class="realm-topics">
+        <span>Pattern Puzzles</span><span>Maths &amp; Logic</span><span>Strings &amp; Ciphers</span><span>Simulation</span>
+      </div>
+      <div class="realm-cta">
+        <button class="btn btn-ghost" data-role="cta">Locked</button>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<p class="select-footer">✦ Learning doesn't have to be boring ✦</p>
+
+<script src="../engine/save.js"></script>
+<script>
+  const LEVEL_HREF = { 1: "level1.html", 2: "level2.html", 3: "level3.html", 4: "level4.html" };
+
+  const fp = foundationProgress();
+  document.getElementById("progressLabel").textContent = `${fp.done} / ${fp.total}`;
+  document.getElementById("progressFill").style.width = `${(fp.done / fp.total) * 100}%`;
+
+  document.querySelectorAll(".realm-card").forEach(card => {
+    const level = Number(card.dataset.level);
+    const unlocked = isLevelUnlocked(level);
+    const complete = isLevelComplete(level);
+    const badge = card.querySelector('[data-role="badge"]');
+    const cta = card.querySelector('[data-role="cta"]');
+    const lockCopy = card.querySelector('[data-role="lock-copy"]');
+
+    card.classList.add(unlocked ? "is-unlocked" : "is-locked");
+
+    if (complete) {
+      badge.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>`;
+      badge.style.color = "#34d399";
+    } else if (unlocked) {
+      badge.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V7a4 4 0 0 1 8 0v4"/><rect x="5" y="11" width="14" height="9" rx="2" fill="currentColor" fill-opacity="0.15"/></svg>`;
+    } else {
+      badge.innerHTML = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>`;
+    }
+
+    if (unlocked) {
+      cta.disabled = false;
+      cta.classList.remove("btn-ghost");
+      cta.classList.add("btn-primary");
+      cta.textContent = "Enter Realm →";
+      cta.addEventListener("click", () => location.href = LEVEL_HREF[level]);
+    } else {
+      cta.disabled = true;
+      lockCopy.hidden = false;
+      lockCopy.textContent = `Complete Level ${level - 1} to unlock`;
+    }
+  });
+</script>
+
+</body>
+</html>

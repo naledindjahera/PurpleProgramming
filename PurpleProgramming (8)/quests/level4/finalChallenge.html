@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The National Trial — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level4.html" class="back-link">← Level 4</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#f7c65e;--realm-b:#2b1a00;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8Z"/><path d="M5 21h14"/></svg>
+    </div>
+    <p class="eyebrow">Final Challenge · Level 4 · The Olympiad</p>
+    <h1>The National Trial</h1>
+    <p class="tagline">Vetkoek Business — one worked example, then you're on your own</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>This is it — the final trial. It draws on everything from Levels 1 through 4: variables, conditionals, loops, and clean, readable code, applied the way a real Olympiad paper would ask. Study the worked example below, then prove you can do it yourself in the challenge that follows.</p>
+  </section>
+
+  <!-- ================= CHALLENGE 1 (WORKED EXAMPLE — NO ANSWER SPACE) ================= -->
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Challenge 1 · worked example</span>
+    </div>
+    <pre><code><span class="tok-com"># Mama Ndeshi sells vetkoek at Post Street Mall in Windhoek.</span>
+<span class="tok-com"># Before market day, she wants to know how many batches she</span>
+<span class="tok-com"># can bake using ONLY what's already in her pantry.</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># One batch needs f kg flour, s kg sugar, and o litres of oil.</span>
+<span class="tok-com"># Her pantry holds F kg flour, S kg sugar, and O litres of oil.</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input (two lines):</span>
+<span class="tok-com">#   F S O   — pantry stock</span>
+<span class="tok-com">#   f s o   — recipe requirements per batch</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input:</span>
+<span class="tok-com">#   9 5 6</span>
+<span class="tok-com">#   3 2 2</span>
+<span class="tok-com"># Output:</span>
+<span class="tok-com">#   2</span></code></pre>
+  </section>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">✎</span>
+      <span class="panel-title">Solution</span>
+    </div>
+    <p>Each ingredient on its own limits how many batches are possible — flour alone allows <code>F // f</code> batches, sugar allows <code>S // s</code>, oil allows <code>O // o</code>. The pantry can only support as many batches as its <strong>tightest</strong> ingredient, so the answer is the smallest of the three.</p>
+    <pre><code><span class="tok-fn">F</span>, <span class="tok-fn">S</span>, <span class="tok-fn">O</span> = <span class="tok-fn">map</span>(<span class="tok-fn">int</span>, <span class="tok-fn">input</span>().<span class="tok-fn">split</span>())
+<span class="tok-fn">f</span>, <span class="tok-fn">s</span>, <span class="tok-fn">o</span> = <span class="tok-fn">map</span>(<span class="tok-fn">int</span>, <span class="tok-fn">input</span>().<span class="tok-fn">split</span>())
+
+batches = <span class="tok-fn">min</span>(F // f, S // s, O // o)
+<span class="tok-fn">print</span>(batches)</code></pre>
+    <p>For the example above: <code>9 // 3 = 3</code>, <code>5 // 2 = 2</code>, <code>6 // 2 = 3</code> — the smallest is <strong>2</strong>, so Mama Ndeshi can bake 2 full batches.</p>
+  </section>
+
+  <!-- ================= CHALLENGE 2 (YOUR TURN) ================= -->
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Challenge 2 · your turn</span>
+    </div>
+    <pre><code><span class="tok-com"># This time Mama Ndeshi is willing to spend up to R Namibia</span>
+<span class="tok-com"># dollars at the corner shop to top up whatever she's short of.</span>
+<span class="tok-com"># The shop sells flour at N$12/kg, sugar at N$18/kg, and</span>
+<span class="tok-com"># oil at N$30/litre.</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Given her pantry stock, her recipe, and her budget R, how</span>
+<span class="tok-com"># many batches can she bake now?</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input (three lines):</span>
+<span class="tok-com">#   F S O   — pantry stock</span>
+<span class="tok-com">#   f s o   — recipe requirements per batch</span>
+<span class="tok-com">#   R       — budget in Namibia dollars</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input:</span>
+<span class="tok-com">#   6 3 4</span>
+<span class="tok-com">#   3 2 2</span>
+<span class="tok-com">#   150</span>
+<span class="tok-com"># Output:</span>
+<span class="tok-com">#   3</span></code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2 — No Solution Given</span>
+    </div>
+    <p>Write a program that reads Mama Ndeshi's pantry stock, her recipe, and her budget, then prints the maximum number of full batches she can bake — buying whatever's missing, as long as she stays within budget.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBoxFinal" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+    <div id="hintBoxFinal" class="reveal-box" hidden>
+      Try increasing the batch count one at a time, starting from zero. For each candidate number of batches <code>n</code>, work out how much of each ingredient she's short of using <code>max(0, n * need - have)</code>, multiply each shortfall by its price, add the three costs together, and check whether the total fits within budget <code>R</code>. Keep increasing <code>n</code> while it's still affordable — the last affordable <code>n</code> is your answer. A <code>while True:</code> loop that breaks the moment a candidate becomes unaffordable works well here.
+    </div>
+
+    <textarea id="studentCodeFinal" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallengeFinal">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessageFinal"></p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="testsBoxFinal" data-show-label="▸ Expected output" data-hide-label="▾ Hide expected output">▸ Expected output</button>
+    </div>
+    <div id="testsBoxFinal" class="reveal-box" hidden>
+      Try these cases and check your output matches:<br>
+      2.a &nbsp;6 3 4 / 3 2 2 / R=0 &nbsp;→ 1<br>
+      2.b &nbsp;6 3 4 / 3 2 2 / R=40 → 2<br>
+      2.c &nbsp;6 3 4 / 3 2 2 / R=150 → 3<br>
+      2.d &nbsp;0 0 0 / 3 2 2 / R=300 → 2
+    </div>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Finish The Olympiad 🏆</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "ol-final",
+    hub: "../../levels/level4.html",
+    index: 4,
+    total: 4,
+    nextHref: "../../levels/level4.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level4/finalChallenge.js"></script>
+
+</body>
+</html>

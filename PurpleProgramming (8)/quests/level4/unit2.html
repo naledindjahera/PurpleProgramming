@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Welwitschia's Age — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level4.html" class="back-link">← Level 4</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#f0b23d;--realm-b:#3a2405;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 12 12 21 4 12Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 2 · Level 4 · The Olympiad</p>
+    <h1>The Welwitschia's Age</h1>
+    <p class="tagline">Two challenges — growth, in reverse</p>
+  </div>
+
+  <!-- ================= CHALLENGE 1 (EASY) ================= -->
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Challenge 1 · the puzzle</span>
+    </div>
+    <pre><code><span class="tok-com"># The Welwitschia mirabilis is one of the slowest-growing plants</span>
+<span class="tok-com"># on Earth — some specimens out in the Namib are over 1500 years</span>
+<span class="tok-com"># old. A botanist is tracking a seedling that's currently H cm</span>
+<span class="tok-com"># tall. Each year it grows by G% of its CURRENT height, rounded</span>
+<span class="tok-com"># down to the nearest whole centimetre.</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Given its starting height H, its growth rate G, and a number</span>
+<span class="tok-com"># of years Y, what will its height be after Y years?</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input: 100 10 3   Output: 133</span></code></pre>
+  </section>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">✎</span>
+      <span class="panel-title">Working it out</span>
+    </div>
+    <p>Growth here is <strong>compounding</strong> — each year's growth is a percentage of the height <em>after</em> the previous year's growth, not the original height. So you can't just calculate one year and multiply by Y; you need to update the height Y times, once per year.</p>
+    <p>For H = 100, G = 10, Y = 3: year 1 grows by 100 × 10 ÷ 100 = 10 → height 110. Year 2 grows by 110 × 10 ÷ 100 = 11 → height 121. Year 3 grows by 121 × 10 ÷ 100 = 12 (rounded down from 12.1) → height <strong>133</strong>.</p>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1 — Warm-up</span>
+    </div>
+    <p>Write a program that reads the starting height <code>H</code>, the growth rate <code>G</code>, and the number of years <code>Y</code>, then prints the plant's height after Y years. Use integer division so the height is always a whole number of centimetres.</p>
+
+    <div class="reveal-row">
+      <p class="link-toggle" data-toggle="hintBox1" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</p>
+    </div>
+    <div id="hintBox1" class="reveal-box" hidden>
+      <p>Use a <code>for</code> loop that runs <code>Y</code> times. On each pass, compute <code>growth = height * rate // 100</code>, then add it on: <code>height = height + growth</code>. Print <code>height</code> once the loop finishes — not inside it.</p>
+    </div>
+
+    <div class="reveal-row">
+      <div class="link-toggle" data-toggle="solutionBox1" data-show-label="▸ Show solution" data-hide-label="▾ Hide solution">▸ Show solution</div>
+    </div>
+    <div id="solutionBox1" class="reveal-box" hidden>
+      <pre><code><span class="tok-fn">height</span>, <span class="tok-fn">rate</span>, <span class="tok-fn">years</span> = <span class="tok-fn">map</span>(<span class="tok-fn">int</span>, <span class="tok-fn">input</span>().<span class="tok-fn">split</span>())
+
+<span class="tok-kw">for</span> i <span class="tok-kw">in</span> <span class="tok-fn">range</span>(years):
+    growth = height * rate // <span class="tok-num">100</span>
+    height = height + growth
+
+<span class="tok-fn">print</span>(height)</code></pre>
+    </div>
+
+    <textarea id="studentCode1" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="testsBox1" data-show-label="▸ Expected output" data-hide-label="▾ Hide expected output">▸ Expected output</button>
+    </div>
+    <div id="testsBox1" class="reveal-box" hidden>
+      Try these H/G/Y combinations and check your output matches:<br>
+      1.a &nbsp;H=100, G=10, Y=3 &nbsp;→ 133<br>
+      1.b &nbsp;H=50, G=20, Y=4 &nbsp;→ 103<br>
+      1.c &nbsp;H=200, G=5, Y=0 &nbsp;→ 200<br>
+      1.d &nbsp;H=10, G=50, Y=5 &nbsp;→ 75
+    </div>
+
+  </section>
+
+  <!-- ================= CHALLENGE 2 (HARD) ================= -->
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Challenge 2 · the puzzle</span>
+    </div>
+    <pre><code><span class="tok-com"># The botanist wants the reverse question answered: given the</span>
+<span class="tok-com"># SAME seedling's starting height H and its growth rate G%, how</span>
+<span class="tok-com"># many FULL years will it take before the plant's height is at</span>
+<span class="tok-com"># least a target height T?</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input: 50 20 100   Output: 4</span></code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2 — No Solution Given</span>
+    </div>
+    <p>Write a program that reads the starting height <code>H</code>, the growth rate <code>G</code>, and a target height <code>T</code> (on one line, space-separated, or on separate lines — your choice), and prints the number of full years until the height reaches or exceeds T. If the plant has already reached T, the answer is 0.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox2" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+    <div id="hintBox2" class="reveal-box" hidden>
+      This time you don't know the number of years in advance, so a fixed-count <code>for</code> loop won't work — use a <code>while</code> loop instead. Keep a year counter starting at 0. While <code>height &lt; target</code>, apply one year's growth and add 1 to the counter. As soon as the condition is false, stop and print the counter.
+    </div>
+
+    <textarea id="studentCode2" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage2"></p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="testsBox2" data-show-label="▸ Expected output" data-hide-label="▾ Hide expected output">▸ Expected output</button>
+    </div>
+    <div id="testsBox2" class="reveal-box" hidden>
+      Try these H/G/T combinations and check your output matches:<br>
+      2.a &nbsp;H=100, G=10, T=200 &nbsp;→ 8<br>
+      2.b &nbsp;H=50, G=20, T=100 &nbsp;→ 4<br>
+      2.c &nbsp;H=10, G=50, T=50 &nbsp;→ 5<br>
+      2.d &nbsp;H=200, G=10, T=200 → 0
+    </div>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "ol-unit2",
+    hub: "../../levels/level4.html",
+    index: 2,
+    total: 4,
+    nextHref: "unit3.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level4/unit2.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Skeleton Coast Cipher — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level4.html" class="back-link">← Level 4</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#f0b23d;--realm-b:#3a2405;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
+    </div>
+    <p class="eyebrow">Unit 3 · Level 4 · The Olympiad</p>
+    <h1>The Skeleton Coast Cipher</h1>
+    <p class="tagline">Two challenges — scrambling letters, then unscrambling them</p>
+  </div>
+
+  <!-- ================= CHALLENGE 1 (EASY) ================= -->
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Challenge 1 · the puzzle</span>
+    </div>
+    <pre><code><span class="tok-com"># Smugglers along the Skeleton Coast send coded telegrams using</span>
+<span class="tok-com"># a simple CAESAR CIPHER: every letter is shifted forward N</span>
+<span class="tok-com"># places through the alphabet, wrapping from Z back to A. Case</span>
+<span class="tok-com"># is preserved, and anything that isn't a letter (spaces,</span>
+<span class="tok-com"># punctuation, digits) is left exactly as it is.</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Given a message and a shift N, print the encoded telegram.</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input:  Meet at midnight</span>
+<span class="tok-com">#         5</span>
+<span class="tok-com"># Output: Rjjy fy rnisnlmy</span></code></pre>
+  </section>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">✎</span>
+      <span class="panel-title">Working it out</span>
+    </div>
+    <p>For each character, check whether it's a letter. If it is, find its position in the alphabet (0–25), add the shift, wrap around with <code>% 26</code>, then convert back to a letter — using the right base (<code>'A'</code> or <code>'a'</code>) to preserve case. If it isn't a letter, copy it across unchanged.</p>
+    <p>Python's <code>ord()</code> and <code>chr()</code> functions convert between a character and its numeric code, which is exactly what you need to do the shifting arithmetic.</p>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">1</span>
+      <span class="panel-title">Challenge 1 — Warm-up</span>
+    </div>
+    <p>Write a program that reads a message (a full line, which may contain spaces and punctuation) and a shift <code>N</code>, then prints the encoded telegram. Preserve uppercase/lowercase, and leave non-letter characters unchanged.</p>
+
+    <div class="reveal-row">
+      <p class="link-toggle" data-toggle="hintBox1" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</p>
+    </div>
+    <div id="hintBox1" class="reveal-box" hidden>
+      <p>Loop over the message one character at a time. Use <code>char.isalpha()</code> to test if it's a letter, then pick <code>base = ord('A')</code> or <code>ord('a')</code> depending on <code>char.isupper()</code>. The shifted letter is <code>chr((ord(char) - base + N) % 26 + base)</code>. Build up the result with string concatenation, then print it once the loop finishes.</p>
+    </div>
+
+    <div class="reveal-row">
+      <div class="link-toggle" data-toggle="solutionBox1" data-show-label="▸ Show solution" data-hide-label="▾ Hide solution">▸ Show solution</div>
+    </div>
+    <div id="solutionBox1" class="reveal-box" hidden>
+      <pre><code><span class="tok-fn">message</span> = <span class="tok-fn">input</span>()
+<span class="tok-fn">shift</span> = <span class="tok-fn">int</span>(<span class="tok-fn">input</span>())
+
+result = <span class="tok-str">""</span>
+<span class="tok-kw">for</span> char <span class="tok-kw">in</span> message:
+    <span class="tok-kw">if</span> char.<span class="tok-fn">isalpha</span>():
+        base = <span class="tok-fn">ord</span>(<span class="tok-str">'A'</span>) <span class="tok-kw">if</span> char.<span class="tok-fn">isupper</span>() <span class="tok-kw">else</span> <span class="tok-fn">ord</span>(<span class="tok-str">'a'</span>)
+        result = result + <span class="tok-fn">chr</span>((<span class="tok-fn">ord</span>(char) - base + shift) % <span class="tok-num">26</span> + base)
+    <span class="tok-kw">else</span>:
+        result = result + char
+
+<span class="tok-fn">print</span>(result)</code></pre>
+    </div>
+
+    <textarea id="studentCode1" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="testsBox1" data-show-label="▸ Expected output" data-hide-label="▾ Hide expected output">▸ Expected output</button>
+    </div>
+    <div id="testsBox1" class="reveal-box" hidden>
+      Try these message/shift combinations and check your output matches:<br>
+      1.a &nbsp;"Skeleton Coast", N=3 &nbsp;→ Vnhohwrq Frdvw<br>
+      1.b &nbsp;"Zebra", N=1 &nbsp;→ Afcsb<br>
+      1.c &nbsp;"Hello, World!", N=0 &nbsp;→ Hello, World!<br>
+      1.d &nbsp;"abcXYZ", N=2 &nbsp;→ cdeZAB
+    </div>
+
+  </section>
+
+  <!-- ================= CHALLENGE 2 (HARD) ================= -->
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Challenge 2 · the puzzle</span>
+    </div>
+    <pre><code><span class="tok-com"># A coast guard patrol has intercepted a telegram and knows the</span>
+<span class="tok-com"># shift N that was used to encode it. Reverse the process — given</span>
+<span class="tok-com"># the encoded telegram and its shift N, print the ORIGINAL message.</span>
+<span class="tok-com">#</span>
+<span class="tok-com"># Input:  Rjjy fy rnisnlmy</span>
+<span class="tok-com">#         5</span>
+<span class="tok-com"># Output: Meet at midnight</span></code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">2</span>
+      <span class="panel-title">Challenge 2 — No Solution Given</span>
+    </div>
+    <p>Write a program that reads an encoded telegram (a full line) and the shift <code>N</code> that was used to encode it, then prints the decoded original message. Decoding shifts letters <em>backward</em> instead of forward — watch out for wrapping past <code>A</code> or <code>a</code> the same way Challenge 1 wrapped past <code>Z</code> or <code>z</code>.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox2" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+    <div id="hintBox2" class="reveal-box" hidden>
+      Decoding is the same arithmetic as encoding, just with the shift subtracted instead of added — and Python's <code>%</code> operator already handles negative wraparound correctly, so <code>(ord(char) - base - N) % 26 + base</code> works directly. Alternatively, encoding with a shift of <code>(26 - N) % 26</code> gets you the same result, if you'd rather reuse your Challenge 1 logic.
+    </div>
+
+    <textarea id="studentCode2" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge2">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage2"></p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="testsBox2" data-show-label="▸ Expected output" data-hide-label="▾ Hide expected output">▸ Expected output</button>
+    </div>
+    <div id="testsBox2" class="reveal-box" hidden>
+      Try these encoded message/shift combinations and check your output matches:<br>
+      2.a &nbsp;"Vnhohwrq Frdvw", N=3 &nbsp;→ Skeleton Coast<br>
+      2.b &nbsp;"Afcsb", N=1 &nbsp;→ Zebra<br>
+      2.c &nbsp;"Hello, World!", N=0 &nbsp;→ Hello, World!<br>
+      2.d &nbsp;"cdeZAB", N=2 &nbsp;→ abcXYZ
+    </div>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "ol-unit3",
+    hub: "../../levels/level4.html",
+    index: 3,
+    total: 4,
+    nextHref: "finalChallenge.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level4/unit3.js"></script>
+
+</body>
+</html>

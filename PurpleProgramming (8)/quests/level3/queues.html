@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queues — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+  <a href="../../levels/level3.html" class="back-link">← Level 3</a>
+  <div class="step-dots" id="stepDots"></div>
+  <span class="step-count" id="stepCount"></span>
+</nav>
+
+<main class="quest-main">
+
+  <div class="quest-head">
+    <div class="quest-icon" style="--realm-a:#34d399;--realm-b:#123424;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2V5Z"/><path d="M7 3v16"/></svg>
+    </div>
+    <p class="eyebrow">Unit 6 · Level 3</p>
+    <h1>Queues</h1>
+    <p class="tagline">First in, first out</p>
+  </div>
+
+  <section class="panel definition">
+    <div class="panel-label">
+      <span class="panel-badge">Def</span>
+      <span class="panel-title">Definition</span>
+    </div>
+    <p>A <strong>queue</strong> stores items so the first one added is the first one removed &mdash; FIFO, First In First Out &mdash; like the line at Shoprite on a Friday afternoon. Python's <code>collections.deque</code> gives fast queue operations.</p>
+  </section>
+
+  <section class="panel example">
+    <div class="example-titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="caption">Using deque as a queue</span>
+    </div>
+    <pre><code><span class="tok-kw">from</span> collections <span class="tok-kw">import</span> <span class="tok-fn">deque</span>
+
+till_queue = <span class="tok-fn">deque</span>()
+till_queue.<span class="tok-fn">append</span>(<span class="tok-str">&quot;Customer A&quot;</span>)
+till_queue.<span class="tok-fn">append</span>(<span class="tok-str">&quot;Customer B&quot;</span>)
+till_queue.<span class="tok-fn">append</span>(<span class="tok-str">&quot;Customer C&quot;</span>)
+
+<span class="tok-fn">print</span>(till_queue.<span class="tok-fn">popleft</span>())   <span class="tok-com"># first one in is served first</span>
+<span class="tok-fn">print</span>(till_queue)</code></pre>
+  </section>
+
+  <section class="panel challenge">
+    <div class="panel-label">
+      <span class="panel-badge">✕</span>
+      <span class="panel-title">Challenge</span>
+    </div>
+    <p>Model the till queue at a Windhoek supermarket. Start with an empty <code>deque</code> called <code>till</code>. Add 7 customer names to the back of the queue one at a time, printing the queue after every addition. Then serve (remove from the front) customers one at a time in a loop <strong>until the queue has 2 or fewer people left</strong>, printing who was served each time. Finally, print how many customers are still waiting, and print the name of whoever is at the front of the line without removing them.</p>
+
+    <div class="reveal-row">
+      <button class="link-toggle" data-toggle="hintBox" data-show-label="▸ Need a hint?" data-hide-label="▾ Hide hint">▸ Need a hint?</button>
+    </div>
+
+    <div id="hintBox" class="reveal-box" hidden>Use a while loop: while len(till) > 2: serve someone with till.popleft(). Peek the front with till[0].</div>
+
+    <textarea id="studentCode" placeholder="Paste your Python code here..." spellcheck="false" class="code-input"></textarea>
+
+    <div class="quest-actions">
+      <button class="btn btn-primary" id="checkChallenge">Check Challenge</button>
+    </div>
+    <p class="quest-status" id="challengeMessage"></p>
+  </section>
+
+  <div class="quest-actions">
+    <button id="nextBtn" class="btn btn-primary" disabled>Next Unit →</button>
+  </div>
+  <p class="quest-status" id="questStatus"></p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+<script>
+  const QUEST = {
+    id: "l3-queues",
+    hub: "../../levels/level3.html",
+    index: 6,
+    total: 7,
+    nextHref: "finalChallenge.html"
+  };
+</script>
+<script src="../../engine/quest.js"></script>
+
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level3/queues.js"></script>
+
+</body>
+</html>

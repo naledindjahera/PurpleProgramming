@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 1 · Variables — Purple Programming</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="page">
+
+<div class="stars"></div>
+
+<nav class="quest-topbar">
+
+    <a href="../../levels/level1.html" class="back-link">
+        ← Level 1
+    </a>
+
+    <div class="step-dots" id="stepDots"></div>
+
+    <span class="step-count" id="stepCount"></span>
+
+</nav>
+
+<main class="quest-main">
+
+    <div class="quest-head">
+
+        <p class="eyebrow">
+            Level 1 • Unit 1
+        </p>
+
+        <h1>Variables</h1>
+
+        <p class="tagline">
+            Storing information in a program
+        </p>
+
+    </div>
+
+    <!-- ================= Definition ================= -->
+
+    <section class="panel definition">
+
+        <div class="panel-label">
+
+            <span class="panel-badge">Def</span>
+
+            <span class="panel-title">Definition</span>
+
+        </div>
+
+        <p>
+
+            A variable is a named container used to store data that can be used later in a program.
+
+        </p>
+
+    </section>
+
+    <!-- ================= Example ================= -->
+
+    <section class="panel example">
+
+        <div class="example-titlebar">
+
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+
+            <span class="caption">
+                Example
+            </span>
+
+        </div>
+
+<pre><code><span class="tok-fn">name</span> = <span class="tok-str">"Tulela"</span>
+
+<span class="tok-fn">age</span> = <span class="tok-num">19</span>
+
+<span class="tok-fn">city</span> = <span class="tok-str">"Walvis Bay"</span>
+
+<span class="tok-kw">print</span>(name)
+<span class="tok-kw">print</span>(age)
+<span class="tok-kw">print</span>(city)
+</code></pre>
+
+    </section>
+
+    <!-- ================= Challenge 1 ================= -->
+
+    <section class="panel challenge" id="challenge1">
+
+        <div class="panel-label">
+
+            <span class="panel-badge">
+                1
+            </span>
+
+            <span class="panel-title">
+                Challenge 1
+            </span>
+
+        </div>
+
+        <p>
+
+            Create the following variables:
+
+        </p>
+
+        <ul>
+
+            <li><code>name</code></li>
+
+            <li><code>age</code></li>
+
+            <li><code>city</code></li>
+
+        </ul>
+
+        <p style="margin-top:15px;">
+
+            Print all three variables.
+
+        </p>
+
+        <textarea
+
+            id="studentCode1"
+
+            placeholder="Paste your Python code here..."
+
+            spellcheck="false"
+
+            class="code-input"
+
+        ></textarea>
+
+        <div class="quest-actions">
+
+            <button
+
+                class="btn btn-primary"
+
+                id="checkChallenge1">
+
+                Check Challenge 1
+
+            </button>
+
+        </div>
+
+        <p
+
+            class="quest-status"
+
+            id="challenge1Message">
+
+        </p>
+
+    </section>
+        <!-- ================= Challenge 2 ================= -->
+
+    <section
+        class="panel challenge"
+        id="challenge2"
+        style="display:none;">
+
+        <div class="panel-label">
+
+            <span class="panel-badge">
+                2
+            </span>
+
+            <span class="panel-title">
+                Challenge 2
+            </span>
+
+        </div>
+
+        <p>
+
+            Create the following variables:
+
+        </p>
+
+        <ul>
+
+            <li><code>first_name</code></li>
+
+            <li><code>last_name</code></li>
+
+            <li><code>age</code></li>
+
+            <li><code>school</code></li>
+
+            <li><code>country</code></li>
+
+        </ul>
+
+        <p style="margin-top:15px;">
+
+            Print all five variables.
+
+        </p>
+
+        <textarea
+
+            id="studentCode2"
+
+            placeholder="Paste your Python code here..."
+
+            spellcheck="false"
+
+            class="code-input"
+
+        ></textarea>
+
+        <div class="quest-actions">
+
+            <button
+
+                class="btn btn-primary"
+
+                id="checkChallenge2">
+
+                Check Challenge 2
+
+            </button>
+
+        </div>
+
+        <p
+
+            class="quest-status"
+
+            id="challenge2Message">
+
+        </p>
+
+    </section>
+
+    <!-- ================= Locked Message ================= -->
+
+    <section
+        class="panel challenge"
+        id="challenge2Locked">
+
+        <div class="panel-label">
+
+            <span class="panel-badge">
+                🔒
+            </span>
+
+            <span class="panel-title">
+
+                Challenge 2 Locked
+
+            </span>
+
+        </div>
+
+        <p>
+
+            Complete Challenge 1 to unlock Challenge 2.
+
+        </p>
+
+    </section>
+        <!-- ================= Lesson Complete ================= -->
+
+<div class="quest-actions">
+
+    <button
+        id="nextBtn"
+        class="btn btn-primary"
+        disabled>
+
+        Next Unit →
+
+    </button>
+
+</div>
+
+    <p
+
+        class="quest-status"
+
+        id="questStatus">
+
+    </p>
+
+</main>
+
+<script src="../../engine/save.js"></script>
+
+<script>
+
+const QUEST = {
+
+    id: "l1-variables",
+
+    hub: "../../levels/level1.html",
+
+    index: 1,
+
+    total: 6,
+
+    nextHref: "datatypes.html"
+
+};
+
+</script>
+
+<script src="../../engine/quest.js"></script>
+<script src="../../engine/checkHelpers.js"></script>
+
+<script src="../../engine/level1/variables.js"></script>
+
+</body>
+
+</html>
